@@ -1,5 +1,11 @@
 <?php 
+session_start();
+
+echo $_SESSION['login'];
 
 
-echo "string";
+
+
  ?>
+
+ <a href="create.php">Create new record</a>

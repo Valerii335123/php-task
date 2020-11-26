@@ -6,9 +6,11 @@ if(isset($_POST)) {
 
 	if(isset($_POST['login']) && isset($_POST['confirmpass']) && isset($_POST['pass'])){
 		$login=$_POST['login'];
-
+		$pass=$_POST['pass'];
+		// проверка пароля 1 большая буква 1 цифра не меньше 6 символов
+				if(preg_match('/(?=.*[0-9])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/', $pass)) {
 		if($_POST['pass']===$_POST['confirmpass']) {
-			$pass=$_POST['pass'];
+			
 			$sql="SELECT * FROM user where login='$login'";
 
 			$rez=mysqli_query($conn,$sql);
@@ -32,6 +34,8 @@ if(isset($_POST)) {
 			}
 			
 		}
+	}
+	else echo 'error';
 	}
 }
 
