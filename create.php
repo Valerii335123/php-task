@@ -15,7 +15,7 @@ if(isset($_POST))
 
 			//добавление записи в базу 
 			//яктивная по умолчанию
-			//нежно создавать link поле
+			//нужно создавать link поле
    $sql ="INSERT INTO `record`( `title`, `text`, `active`, `idUser` ) VALUES ('$title','$text','$t','$id')"; 
    mysqli_query($conn,$sql);
    		

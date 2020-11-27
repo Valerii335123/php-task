@@ -33,7 +33,7 @@ header("Location: home.php");
 
 }
 
-echo "<a href='index.php'>Login or pass not right</a>";
+echo "<a href='index.html'>Login or pass not right</a>";
 
 
 
