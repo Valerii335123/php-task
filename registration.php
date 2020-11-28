@@ -25,11 +25,7 @@ if(isset($_POST)) {
 					mysqli_query($conn,$sql);
 					echo "acount add successfully";
 					}
-				// while($row = mysqli_fetch_row($rez)) {
-				// 	echo($row[1]);
-				// 	echo '<br>';
-
-				// }
+				
 
 			}
 			
@@ -38,15 +34,45 @@ if(isset($_POST)) {
 	else echo 'error';
 	}
 }
-
   ?>
 
+<!DOCTYPE html>
+<html>
+<head>
 
-<form action="registration.php" method="POST">
-	<input type="text" name="login">
-	<br>
-	<input type="password" name="pass">
-	<br>
-	<input type="password" name="confirmpass">
-	<button type="submit">check</button>
-</form>
+<title>personal notebook</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">	
+
+</head>
+<body class="bg-dark">
+	<nav class="navbar navbar-dark bg-dark">
+ 		 <p class="h1 text-success">Registration</p>
+	</nav>
+	<div class="row ">
+		<div class="col">
+			<div class="mx-auto w-50 p-3 bg-dark text-white text-center">
+				<form action="registration.php" method="POST">
+					Login	
+					<input class="form-control form-control-lg" type="text" name="login">
+					<br>
+					Password	
+					<input class="form-control form-control-lg" type="password" name="pass">
+					<br>
+					Confirm password
+					<input class="form-control form-control-lg" type="password" name="confirmpass">
+					<br>
+					<button class="btn btn-secondary btn-lg btn-block" type="submit">Registration</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+<a href="index.html" class="btn btn-primary btn-lg ">
+	go back
+</a>
+
+
+
+</body>
+</html>

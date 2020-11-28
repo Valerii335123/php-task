@@ -15,6 +15,7 @@ if($rez[3]=='0') {
 $delete="DELETE FROM `record` WHERE id='$id'";
 
 $conn->query($delete);
+header('Location: home.php');  
 }
 else echo "record is active";
 
