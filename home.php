@@ -2,11 +2,12 @@
 session_start();
 
 include 'connect.php';
-$id = $_SESSION['id'];
 $login=$_SESSION['login'];
+$id = $_SESSION['id'];
 if(!$id){
 	header('Location: index.html');
 }
+$unique_name = uniqid(md5(rand()), true);
 
 $sql="SELECT * FROM record WHERE idUser='$id'";
 
@@ -49,7 +50,8 @@ $sql="SELECT * FROM record WHERE idUser='$id' LIMIT $offset,$limit";
 //echo $rowpages;
 $rez=mysqli_query($conn,$sql);
 
-  
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -90,7 +92,12 @@ $rez=mysqli_query($conn,$sql);
 	 	echo "<th scope='row' >$r[0]</th>";
 	 	echo "<td>$r[1]</td>";
 	 	echo "<td>$r[2]</td>";
-	 	echo "<td>$r[3]</td>";
+	 	echo ($r[3])?'<td>
+	 		<a class="btn btn-success" href="active.php?id='.$r[0].'&active='.$r[3].'" >Active</a>
+	 	</td>':'<td>
+	 		<a class="btn btn-danger" href="active.php?id='.$r[0].'&active='.$r[3].'" >Not Active</a>
+	 	</td>';
+	 	
 
 	 	echo '<td>
 	 		<a class="btn btn-danger" href="delete.php?id='.$r[0].'" >delete</a>

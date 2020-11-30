@@ -1,6 +1,12 @@
 <?php
 session_start();
 include 'connect.php';
+
+$id = $_SESSION['id'];
+if(!$id){
+	header('Location: index.html');
+}
+
 if(isset($_POST)) {
 	//echo $_POST['isActive'];
 	$title=$_POST['title'];

@@ -1,6 +1,12 @@
 <?php
 session_start();
 include 'connect.php';
+
+$id = $_SESSION['id'];
+if(!$id){
+	header('Location: index.html');
+}
+
 $id=$_GET['id'];
 $login=$_SESSION['login'];
 $sql="SELECT* FROM record WHERE id='$id'";

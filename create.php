@@ -3,6 +3,11 @@ session_start();
 
 include 'connect.php';
 
+$id = $_SESSION['id'];
+if(!$id){
+	header('Location: index.html');
+}
+
 $login = $_SESSION['login'];
 $id=$_SESSION['id'];
 $t=true;
@@ -16,7 +21,8 @@ if(isset($_POST))
 			//добавление записи в базу 
 			//яктивная по умолчанию
 			//нужно создавать link поле
-   $sql ="INSERT INTO `record`( `title`, `text`, `active`, `idUser` ) VALUES ('$title','$text','$t','$id')"; 
+	$unique_name = uniqid(md5(rand()), true);
+   $sql ="INSERT INTO `record`( `title`, `text`, `active`, `idUser`,`link` ) VALUES ('$title','$text','$t','$id','$unique_name')"; 
    mysqli_query($conn,$sql);
    		
    		}
